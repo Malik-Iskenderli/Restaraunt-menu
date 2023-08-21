@@ -6,13 +6,13 @@ const Contact = () => {
     return (
         <section className='contact' id='contact'>
             <h1 className='heading'>
-                <span>Contacct</span> Us
+                <span>Əla</span>qə
             </h1>
             <div className="row">
-                <a href="#"><i className="fa-brands fa-facebook"></i></a>
-                <a href="#"><i className="fa-brands fa-instagram"></i></a>
-                <a href="#"><i className="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i className="fa-brands fa-twitter"></i></a>
+                <a href="https://www.tiktok.com/@5_inn_1?_t=8ewFiS1Ez2H&_r=1" target='_blank'><i className="fa-brands fa-tiktok"></i></a>
+                <a href="https://instagram.com/5_inn_1?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D" target='_blank'><i className="fa-brands fa-instagram"></i></a>
+                {/* <a href="#"><i className="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i className="fa-brands fa-twitter"></i></a> */}
             </div>
         </section>
     )

@@ -17,17 +17,35 @@ html{
     scroll-behavior: smooth;
     scroll-padding-top: 9rem;
 }
-html::-webkit-scrollbar-track{
-    background: transparent;
-}
-html::-webkit-scrollbar-thumb{
-    background:#fff;
-    border-radius: 5rem;
-}
+
 body{
-    background: #010103;
+    background: linear-gradient(90deg, rgb(0 0 0 / 0%), rgb(68 68 68 / 0%)),
+    url(../Assets2/Background.png) no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
     overflow-x: hidden;
 }
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: green;
+    border-radius: 15px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    border-radius: 15px;
+
+  }
 
 /* ================================ */
 
@@ -35,12 +53,11 @@ section{
     padding: 2rem 7%;
 }
 .header{
-    background: #010103;
+    background: linear-gradient(50deg, rgba(0, 0 , 0, 0.1),#ffc107  95%) ;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 8px 7%;
-    border-bottom: 0.2rem solid #ffc107;
     position: fixed;
     top:0;
     left: 0;
@@ -56,20 +73,175 @@ section{
     color: #fff;
 }
 .header .navbar a:hover{
-    color: #ffc107;
-    border-bottom: 0.1rem solid #ffc107;
+    color: #fff;
+    border-bottom: 0.3rem solid green;
+    font-weight: bold;
+}
+.header .icons{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 .header .icons div{
     color: #fff;
     font-size: 2.5rem;
     cursor: pointer;
 }
-.header .icons div:hover{
+.header .icons .basket-icon{
+    position: relative;
+}
+.header .icons .basket-icon .basket-length{
+    position: absolute;
+    background-color: red;
+    top: -1rem;
+    right: -1rem;
+    padding: 0.2rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .icons .basket-icon .basket-length span{
+    font-size: 1rem;
+}
+
+.header .icons .basket{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 40rem;
+    height: 100vh;
+    background: linear-gradient(90deg, rgb(0 0 0 / 0%), rgb(68 68 68 / 0%)),
+    url(../Assets2/Background.png) no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    overflow-x: hidden;  
+    /* transform: all .5s ease-in-out; */
+    animation: openBasket 0.6s ease;
+}
+.header .icons .basket .exit{
+    margin: 2rem 0 0 2rem;
+}
+.header .icons .basket .exit:hover i{
+    transform: scale(1.3);
     color: #ffc107;
+}
+
+@keyframes openBasket {
+    from{
+        transform: translateX(40%);
+        opacity: 0.03;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+.header .icons .basket.active{
+display: block;
+z-index: 1;
+
+}
+.header .icons .basket .basket-footer{
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(233,233,233, 0.6);
+    width: 40rem;
+    height: 15rem;
+    border-radius: 30% 20% 0 0;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+.header .icons .basket .basket-footer .basket-footer-send{
+    width: 100%;
+}
+.header .icons .basket .basket-footer .basket-footer-send button{
+    border: none;
+    background-color: #ffc107;
+    width: 100%;
+    height: 4rem;
+    border-radius: 13px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.header .icons .basket .basket-footer .basket-footer-send button:hover{
+    transform: scale(0.9);
+}
+.header .icons .basket .basket-footer .basket-footer-send button:hover p{
+transform: scale(1.2) ;
+font-weight: bold;
+}
+
+
+.header .icons .lang{
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    
+}
+.header .icons .lang .langiconflag{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+}
+    
+.header .icons .language{
+    position: absolute;
+    top: 5.5rem;
+    left: -2rem;
+    background-color: #fff;
+    display: none;
+    border-radius: 13px;
+    padding: 0 2rem;
+    animation: openLang 0.5s ease;
+   
+}
+@keyframes openLang {
+    from{
+        transform: translateY(-30%);
+        opacity: 0.3;
+    }
+    to{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.header .icons .language.active{
+    display:block;
+}
+.header .icons .language button{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem 0 ;
+    cursor: pointer;
+    background-color: inherit;
+}
+.header .icons .language button:hover span{
+    color: #ffc107;
+}
+
+.header .icons .language button span{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+.header .icons div:hover{
+    color: rgba(15, 136, 15, 0.829);
 }
 #menu-btn{
     display: none;
-    margin-left: 2rem;
 }
 /* ========================== */
 .header .search-form{
@@ -116,19 +288,21 @@ section{
     min-height: 100vh;
     display: flex;
     align-items: center;
+    flex-direction: column;
     background: linear-gradient(90deg, rgb(0 0 0 / 93%), rgb(68 68 68 / 35%)),
     url(../Images/images.jpg) no-repeat;
     background-size: cover;
     background-position: center;
+    border-radius: 0 0 5% 30%;
+    padding-top: 12rem;
 }
 .home .content {
     max-width: 60rem;
+    
 }
 
-.home .content h3{
-    font-size: 6rem;
-    text-transform: uppercase;
-    color: #fff;
+.home .content img{
+   max-width: 100%;
 }
 .home span{
     color: #ffc107;
@@ -141,30 +315,36 @@ section{
     padding: 1rem 0;
     color: #eee;
 }
- .content .btn{
-    background: #ffc107;
-    text-transform: uppercase;
-    font-size: 2rem;
-    color: #fff;
-    font-weight: bold;
-    padding: 1rem ;
+
+.home  .setmenu a{
+    margin-left: 5rem;
 }
- .content .btn:hover{
-    background: #fff;
-    color:#ffc107;
+
+.home  .setmenu img{
+    width: 15%;
 }
+.home  .setmenu img:hover{
+    transform: scale(1.1);
+}
+
+
 /* ===================== */
 .about .row{
     display: flex;
     align-items: center;
     background: #13131a;
     flex-wrap: wrap;
+    border-radius: 16rem 4rem 16rem 7rem;
 }
 .about .row .image{
     flex: 1 1 45rem;
+    border-radius: 16rem 4rem 16rem 7rem;
+
+
 }
 .about .row .image img{
     width: 100%;
+    border-radius: 16rem 4rem 16rem 7rem;
 }
 .about .row .content{
     flex: 1 1 45rem;
@@ -199,39 +379,64 @@ section{
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
 }
-.menu .box-container .box{
-    padding: 5rem;
-    text-align: center;
-    border: 0.2rem solid #ffc107;
+.menu .menu-parents{
+    display: flex ;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    /* width: 100%; */
 }
-.menu .box-container .box img{
-    height: 10rem;
+.menu .sorba{
+    background-image: url(../Assets2/MorningSetMenuAssets/DuyuSiyigi.jpg);
+    background-size:cover;
+    background-position: center;
+    /* background-attachment: fixed; */
+}
+
+.menu .sorba,
+.menu .salat,
+.menu .lahmacun,
+.menu .pide,
+.menu .isti-yemekler,
+.menu .qarnir,
+.menu .icki
+{
+    max-width: 15rem;
+    height: 14rem;
     border-radius: 50%;
+    /* background: linear-gradient(-30deg, rgba(0, 0 , 0, 0.4),#ffc107  95%) ; */
+    border-radius: 7rem 7rem 7rem 7rem;
+    cursor:pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+
 }
-.menu .box-container .box h3{
-    color: #fff;
-    font-size: 2rem;
-    padding: 1rem 0;
+.menu .sorba a,
+.menu .salat a,
+.menu .lahmacun  a,
+.menu .pide a,
+.menu .isti-yemekler a,
+.menu .qarnir a,
+.menu .icki a{
+font-size: 2rem;
+font-weight: bold;
+padding: 2rem;
+color: #000;
 }
-.menu .box-container .box .price{
-    color: #fff;
-    font-size: 2.5rem;
-    padding: 0.5rem 0;
+.menu .sorba a:hover,
+.menu .salat a:hover,
+.menu .lahmacun a:hover,
+.menu .pide a:hover,
+.menu .isti-yemekler a:hover,
+.menu .qarnir a:hover,
+.menu .icki a:hover{
+transform: scale(1.1);
 }
-.menu .box-container .box .price span{
-    font-size: 1.5rem;
-    text-decoration: line-through;
-    font-weight: lighter;
-}
-.menu .box-container .box:hover{
-    background: #443300;
-    transition: 0.5s;
-}
-.menu .box-container .box{
-    text-align: center;
-    border: 0.2rem solid #ffc107;
-    padding: 2rem;
-}
+
+
 /* ===================== */
 .products .box-container .box{
     text-align: center;
@@ -294,6 +499,15 @@ gap: 2.5rem;
 .contact .row a i:hover{
     color: #ffc107;
 }
+.loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loading img{
+    width: 100vh;
+}
+
 
 
 

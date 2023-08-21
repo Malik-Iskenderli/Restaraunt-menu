@@ -8,7 +8,7 @@ const About = () => {
         <>
             <section className='about' id='about'>
                 <h1 className='heading'>
-                    <span>about </span>us
+                    <span>Haqqımız</span>da
                 </h1>
                 <div className='row'>
                     <div className='image'>
